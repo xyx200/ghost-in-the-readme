@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-29T18:10:11.972Z",
+  "checks": [
+    {
+      "name": "Repeated actual WASM inference retains review for unchanged documents",
+      "passed": true,
+      "actualNote": "Keep this review across repeated inference.",
+      "actualDecision": "investigate"
+    },
+    {
+      "name": "Threshold change retains review",
+      "passed": true
+    },
+    {
+      "name": "Export contains retained human decision and note",
+      "passed": true
+    },
+    {
+      "name": "Cancelling repeated inference keeps the previous report and review",
+      "passed": true
+    },
+    {
+      "name": "Changed document invalidates the old report",
+      "passed": true
+    },
+    {
+      "name": "Reviews do not transfer to changed document text",
+      "passed": true
+    }
+  ],
+  "externalRequests": [],
+  "errors": [],
+  "passed": true,
+  "processesStopped": true
+}

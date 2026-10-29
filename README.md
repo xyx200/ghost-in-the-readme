@@ -81,11 +81,12 @@ npm run verify:ai
 node scripts/record-demo.mjs
 ```
 
-- **9/9 core tests**: parsing, source lines, URLs/version numbers, input bounds, corrupt embeddings, contradictory wording, ambiguous/shared matches, thresholds, baseline, and report integrity.
+- **10/10 core tests**: parsing (including mixed or nested code fences), source lines, URLs/version numbers, input bounds, corrupt embeddings, contradictory wording, ambiguous/shared matches, thresholds, baseline, and report integrity.
 - **5/5 synthetic retrieval sanity checks** with actual MiniLM inference: each intended paraphrase outranked an unrelated sentence by at least 0.15 cosine. This is a small sanity check, **not a benchmark accuracy claim**.
 - **Browser WASM run:** 13 passages, 133 ms measured inference on the test host; input/model loading is reported separately. The exported browser report contains seven findings and one preserved review note. This is one observed run, not a performance guarantee.
 - Browser verification includes successful inference, a second contradiction example, JSON and Markdown downloads, threshold changes preserving notes, empty-input validation, and a 390-pixel mobile layout without horizontal overflow. No console errors were observed during these tests.
 - CPU inference was rerun with `fetch` disabled, demonstrating that the prepared local model does not need a network request for that path.
+- Review regression checks also ran actual browser WASM inference with external HTTP requests blocked: notes and decisions survive repeated inference, threshold changes, cancellation, and export. Editing either document invalidates the old report and clears its reviews. See [review evidence](evidence/review-browser-after.json).
 
 See [evidence/browser-validation.json](evidence/browser-validation.json), [evidence/inference-validation.json](evidence/inference-validation.json), and [evidence/browser-export.json](evidence/browser-export.json).
 

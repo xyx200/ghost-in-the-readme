@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-29T18:13:13.194Z",
+  "command": "node --test tests/core.test.mjs",
+  "exitCode": 0,
+  "passed": 10,
+  "failed": 0,
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0
+  },
+  "newRegression": "Mixed fence characters, insufficient closing length and trailing text must not close code blocks",
+  "beforeFixObserved": [
+    "Prose before the block.",
+    "This code should never become prose."
+  ],
+  "afterFix": "Core regression test passes; only prose before and after the complete fence is retained"
+}

@@ -17,13 +17,15 @@ for (const field of ['before', 'after']) $(field).addEventListener('input', () =
 
 async function fingerprint(text) { return [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)))].map(v => v.toString(16).padStart(2, '0')).join(''); }
 function stopWorker() { worker?.terminate(); worker = null; request++; setBusy(false); }
-$('cancel').addEventListener('click', () => { stopWorker(); $('progress').textContent = 'Cancelled. No report was generated.'; });
+$('cancel').addEventListener('click', () => { stopWorker(); $('progress').textContent = state ? 'Cancelled. Previous results and review notes are still available.' : 'Cancelled. No report was generated.'; });
 $('summon').addEventListener('click', async () => {
   try {
     $('error').hidden = true;
     const beforeText = $('before').value, afterText = $('after').value;
     const before = parseDocument(beforeText, 'Before'), after = parseDocument(afterText, 'After');
-    clearResults(); setBusy(true); $('progress').textContent = 'Waking the local model…';
+    // Input changes already invalidate the report. Re-running unchanged inputs
+    // must retain the human review, including if this inference is cancelled.
+    setBusy(true); $('progress').textContent = 'Waking the local model…';
     const id = ++request;
     const fingerprints = { before: await fingerprint(beforeText), after: await fingerprint(afterText) };
     if (id !== request) return;

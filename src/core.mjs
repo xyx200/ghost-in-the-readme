@@ -6,10 +6,15 @@ export function parseDocument(text, label = 'Document') {
   if (typeof text !== 'string' || !text.trim()) throw new Error(`${label} is empty. Add a few sentences first.`);
   if (text.length > LIMITS.characters) throw new Error(`${label} exceeds ${LIMITS.characters.toLocaleString()} characters. Use a smaller excerpt.`);
   const passages = [];
-  let fence = false;
+  let fence = null;
   for (const [index, raw] of text.split(/\r?\n/).entries()) {
-    if (/^\s*(```|~~~)/.test(raw)) { fence = !fence; continue; }
-    if (fence || /^\s*(#{1,6}\s|<!--|\|?\s*:?-{3,})/.test(raw)) continue;
+    const marker = raw.match(/^\s*(`{3,}|~{3,})(.*)$/);
+    if (fence) {
+      if (marker && marker[1][0] === fence.character && marker[1].length >= fence.length && !marker[2].trim()) fence = null;
+      continue;
+    }
+    if (marker) { fence = { character: marker[1][0], length: marker[1].length }; continue; }
+    if (/^\s*(#{1,6}\s|<!--|\|?\s*:?-{3,})/.test(raw)) continue;
     const cleaned = raw.replace(/^\s*(?:[-*+]\s+(?:\[[ xX]\]\s*)?|\d+[.)]\s+|>\s*)/, '')
       .replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
       .replace(/[`*_]/g, '').trim();

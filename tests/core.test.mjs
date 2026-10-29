@@ -11,6 +11,14 @@ test('Invalid, empty and oversized documents fail explicitly', () => {
   assert.throws(() => parseDocument('A'.repeat(401)), /split the passage/);
   assert.throws(() => parseDocument('A simple sentence.\n'.repeat(81)), /limit/);
 });
+
+test('Fenced code closes only with the same marker and sufficient length', () => {
+  for (const [opening, nested] of [['````js', '```'], ['```js', '~~~'], ['~~~~', '~~~'], ['~~~js', '```']]) {
+    const closing = opening.match(/^[`~]+/)[0];
+    const text = ['Prose before the block.', opening, nested, 'This code must remain excluded.', closing + ' not a close', 'More code must remain excluded.', closing, 'Prose after the block.'].join('\n');
+    assert.deepEqual(parseDocument(text).map(p => [p.line, p.text]), [[1,'Prose before the block.'],[8,'Prose after the block.']]);
+  }
+});
 test('Sentence parsing retains URLs and decimal version numbers', () => {
   const text = 'Visit https://example.com/docs before upgrading to version 1.2.3.';
   assert.equal(parseDocument(text).map(p => p.text).join(' '), text);
