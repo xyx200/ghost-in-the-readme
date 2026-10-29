@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "title": "Ghost in the README — review ledger",
+  "createdAt": "2026-10-29T17:45:49.698Z",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "method": "Quantized sentence embeddings; mean pooling; cosine similarity. Scores are not probabilities or proof of fulfillment.",
+  "threshold": 0.68,
+  "inputFingerprints": {
+    "before": "5a6a93b686d888fdc4db4aa51e92b8b37cb51736d4a0dd5b438f1e85f055bd40",
+    "after": "27bf74938c03c71a1fa187d9eb7959c0890499b8cad3bf01cd860f9e79ed4ac2"
+  },
+  "inference": {
+    "backend": "ONNX Runtime Node / CPU",
+    "library": "@huggingface/transformers@3.8.1",
+    "dtype": "q8",
+    "dimensions": 384,
+    "passages": 6,
+    "modelLoadMs": 128,
+    "inferenceMs": 4,
+    "measuredAt": "2026-10-29T17:45:49.698Z",
+    "remoteModelsAllowed": false
+  },
+  "limitations": [
+    "English short prose only; code blocks and headings are skipped.",
+    "Similarity is not entailment. Negation and contradictory promises can look similar.",
+    "Thresholds are editorial heuristics, not calibrated probabilities.",
+    "One current passage can be the nearest neighbor of several old passages."
+  ],
+  "before": "# Before\n\nThe application does not collect personal data.\nAll features work without an internet connection.\nUsers can delete their account and all stored records.",
+  "after": "# After\n\nThe application collects personal data.\nAn internet connection is required to use all features.\nUsers can change the color of their profile page.",
+  "findings": [
+    {
+      "source": {
+        "id": "before-3",
+        "line": 5,
+        "text": "Users can delete their account and all stored records."
+      },
+      "best": {
+        "passage": {
+          "id": "after-1",
+          "line": 3,
+          "text": "The application collects personal data."
+        },
+        "score": 0.3289379944848123,
+        "lexical": 0
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Users can change the color of their profile page."
+          },
+          "score": 0.3072264702022073,
+          "lexical": 0.2
+        },
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "An internet connection is required to use all features."
+          },
+          "score": 0.18455047501050031,
+          "lexical": 0.058823529411764705
+        }
+      ],
+      "margin": 0.021711524282605033,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "ghost",
+      "ambiguous": true,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-1",
+        "line": 3,
+        "text": "The application does not collect personal data."
+      },
+      "best": {
+        "passage": {
+          "id": "after-1",
+          "line": 3,
+          "text": "The application collects personal data."
+        },
+        "score": 0.6350795338542498,
+        "lexical": 0.5
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "An internet connection is required to use all features."
+          },
+          "score": 0.19454338870458143,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Users can change the color of their profile page."
+          },
+          "score": 0.09825250309187307,
+          "lexical": 0.06666666666666667
+        }
+      ],
+      "margin": 0.4405361451496683,
+      "exact": false,
+      "polarityWarning": true,
+      "status": "uncertain",
+      "ambiguous": false,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-2",
+        "line": 4,
+        "text": "All features work without an internet connection."
+      },
+      "best": {
+        "passage": {
+          "id": "after-2",
+          "line": 4,
+          "text": "An internet connection is required to use all features."
+        },
+        "score": 0.7635275019657427,
+        "lexical": 0.45454545454545453
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-1",
+            "line": 3,
+            "text": "The application collects personal data."
+          },
+          "score": 0.09616042939096062,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Users can change the color of their profile page."
+          },
+          "score": 0.03476766799241723,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.6673670725747821,
+      "exact": false,
+      "polarityWarning": true,
+      "status": "echo",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    }
+  ]
+}

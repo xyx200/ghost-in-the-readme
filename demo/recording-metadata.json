@@ -1,0 +1,9 @@
+{
+  "recordedAt": "2026-10-29T17:37:56.547Z",
+  "exitCode": 0,
+  "durationMs": 322,
+  "eventCount": 5,
+  "source": "Actual child-process stdout/stderr, captured without rewriting. Original synthetic inputs.",
+  "command": "node scripts/cli.mjs examples/lantern-before.md examples/lantern-after.md evidence/cli-demo",
+  "browserScreenRecording": false
+}

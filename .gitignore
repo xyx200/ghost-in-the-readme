@@ -1,0 +1,8 @@
+node_modules/
+dist/
+public/models/
+public/vendor/
+*.log
+.runtime/
+submission-package.zip
+offline-demo.zip

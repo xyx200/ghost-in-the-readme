@@ -1,0 +1,93 @@
+{
+  "verifiedAt": "2026-10-29T17:50:38.6305884+00:00",
+  "interface": "Codex in-app browser",
+  "application": "Ghost in the README",
+  "url": "http://127.0.0.1:4317/",
+  "actualBrowserInference": true,
+  "backend": "ONNX Runtime Web / WASM",
+  "checks": [
+    {
+      "name": "Lantern fixture live inference",
+      "result": "pass",
+      "passages": 13,
+      "inferenceMs": 133,
+      "counts": {
+        "ghost": 3,
+        "uncertain": 1,
+        "echo": 2,
+        "unchanged": 1
+      }
+    },
+    {
+      "name": "Human review controls",
+      "result": "pass",
+      "decision": "investigate",
+      "sourceLine": 6
+    },
+    {
+      "name": "JSON download",
+      "result": "pass",
+      "file": "browser-export.json",
+      "findings": 7,
+      "reviewed": 1,
+      "notePreserved": true,
+      "toolNote": "Browser download-event wait timed out, but the actual downloaded file was found and its content verified."
+    },
+    {
+      "name": "Threshold adjustment preserves notes",
+      "result": "pass",
+      "from": 0.68,
+      "to": 0.69
+    },
+    {
+      "name": "Empty input validation",
+      "result": "pass",
+      "visibleMessage": "Before is empty. Add a few sentences first."
+    },
+    {
+      "name": "Contradiction fixture live inference",
+      "result": "pass",
+      "passages": 6,
+      "inferenceMs": 33,
+      "contradictionCosineRounded": 0.764,
+      "negationWarningVisible": true
+    },
+    {
+      "name": "Markdown download",
+      "result": "pass",
+      "file": "browser-export.md"
+    },
+    {
+      "name": "Mobile layout",
+      "result": "pass",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "documentScrollWidth": 375,
+      "horizontalOverflow": false,
+      "viewportResetAfterTest": true
+    },
+    {
+      "name": "Inference after content-security policy was added",
+      "result": "pass",
+      "passages": 13,
+      "inferenceMs": 128
+    },
+    {
+      "name": "Observed browser console errors",
+      "result": "pass",
+      "errors": []
+    }
+  ],
+  "screenshots": [
+    "browser-hero.jpg",
+    "browser-results.jpg",
+    "browser-mobile.jpg",
+    "browser-negation.jpg"
+  ],
+  "boundaries": [
+    "Timing is a small fixture run on one host, not a general benchmark.",
+    "No external network disconnection was performed; local-only model settings, a same-origin connection policy, successful local assets, and a separately network-disabled CPU test support the offline design.",
+    "The screenshots are genuine browser captures; inference-evidence.png is separately labeled as a rendered data graphic.",
+    "No contest submission occurred during this browser test."
+  ]
+}

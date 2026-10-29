@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-10-29T17:48:33.069Z",
+  "type": "Edited screenshot slideshow",
+  "continuousScreenRecording": false,
+  "syntheticInputs": true,
+  "sources": [
+    "evidence/browser-hero.jpg",
+    "evidence/browser-results.jpg",
+    "evidence/browser-negation.jpg"
+  ],
+  "width": 1200,
+  "height": 760,
+  "frames": 3,
+  "frameDelayMs": 6000,
+  "sourcePixels": "Genuine screenshots captured through the authorized browser tool; resized with explanatory captions only."
+}

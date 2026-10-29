@@ -1,0 +1,42 @@
+GHOST IN THE README
+A local semantic seance for forgotten project promises.
+
+Model: Xenova/all-MiniLM-L6-v2 / q8
+Remote model loading: disabled
+Passages: 7 then, 6 now
+
+[GHOST] cosine 0.100 | word overlap 0.059
+  THEN L6: Every control can be reached using only a keyboard.
+  NOW  L5: Semantic search retrieves related memories from a short description.
+
+[GHOST] cosine 0.193 | word overlap 0.067
+  THEN L9: There are no advertisements in the archive.
+  NOW  L4: Download your transcripts in TXT format whenever you like.
+  ! Negation vocabulary changed: inspect the meaning.
+
+[GHOST] cosine 0.418 | word overlap 0.000
+  THEN L4: Recordings stay on your device and never leave your computer.
+  NOW  L6: Audio is uploaded to our cloud for processing.
+  ! Negation vocabulary changed: inspect the meaning.
+
+[UNCERTAIN] cosine 0.473 | word overlap 0.053
+  THEN L7: The archive remembers the name of each person who told a story.
+  NOW  L5: Semantic search retrieves related memories from a short description.
+
+[ECHO] cosine 0.705 | word overlap 0.105
+  THEN L8: Search finds a memory even when you cannot remember its exact words.
+  NOW  L5: Semantic search retrieves related memories from a short description.
+  ! Negation vocabulary changed: inspect the meaning.
+
+[ECHO] cosine 0.711 | word overlap 0.056
+  THEN L5: You can export every transcript as a plain text file.
+  NOW  L4: Download your transcripts in TXT format whenever you like.
+
+[UNCHANGED] cosine 1.000 | word overlap 1.000
+  THEN L3: Lantern preserves the stories people tell around the kitchen table.
+  NOW  L3: Lantern preserves the stories people tell around the kitchen table.
+
+Measured inference: 17 ms. Model load: 111 ms.
+Similarity is not agreement. A human must review these findings.
+
+Saved review.json and review.md. All decisions are initially unreviewed.

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "title": "Ghost in the README — review ledger",
+  "createdAt": "2026-10-29T17:45:49.706Z",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "method": "Quantized sentence embeddings; mean pooling; cosine similarity. Scores are not probabilities or proof of fulfillment.",
+  "threshold": 0.68,
+  "inputFingerprints": {
+    "before": "e0a8c1bae55fc00633f3cfc83aa407faf553be22b5d85cc81652d7525eaa89d0",
+    "after": "0f289166993e9a6c675979f13861dd14e5e74d12a32579a58244312fe1b1f24a"
+  },
+  "inference": {
+    "backend": "ONNX Runtime Node / CPU",
+    "library": "@huggingface/transformers@3.8.1",
+    "dtype": "q8",
+    "dimensions": 384,
+    "passages": 6,
+    "modelLoadMs": 128,
+    "inferenceMs": 6,
+    "measuredAt": "2026-10-29T17:45:49.706Z",
+    "remoteModelsAllowed": false
+  },
+  "limitations": [
+    "English short prose only; code blocks and headings are skipped.",
+    "Similarity is not entailment. Negation and contradictory promises can look similar.",
+    "Thresholds are editorial heuristics, not calibrated probabilities.",
+    "One current passage can be the nearest neighbor of several old passages."
+  ],
+  "before": "# Before\n\nYou can save a copy of your notes to your own computer.\nThe application supports navigation with a keyboard.\nYour notes are private and only visible to you.",
+  "after": "# After\n\nDownload your notes as a local backup.\nNavigate the interface using keyboard shortcuts.\nOnly you can access your private notes.",
+  "findings": [
+    {
+      "source": {
+        "id": "before-2",
+        "line": 4,
+        "text": "The application supports navigation with a keyboard."
+      },
+      "best": {
+        "passage": {
+          "id": "after-2",
+          "line": 4,
+          "text": "Navigate the interface using keyboard shortcuts."
+        },
+        "score": 0.581633705793771,
+        "lexical": 0.18181818181818182
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Only you can access your private notes."
+          },
+          "score": 0.215412834935199,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-1",
+            "line": 3,
+            "text": "Download your notes as a local backup."
+          },
+          "score": 0.04605629695633092,
+          "lexical": 0.07692307692307693
+        }
+      ],
+      "margin": 0.366220870858572,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "uncertain",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-1",
+        "line": 3,
+        "text": "You can save a copy of your notes to your own computer."
+      },
+      "best": {
+        "passage": {
+          "id": "after-1",
+          "line": 3,
+          "text": "Download your notes as a local backup."
+        },
+        "score": 0.8296115685619273,
+        "lexical": 0.2
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Only you can access your private notes."
+          },
+          "score": 0.651568712105235,
+          "lexical": 0.2857142857142857
+        },
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "Navigate the interface using keyboard shortcuts."
+          },
+          "score": 0.18358181132672252,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.17804285645669227,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "echo",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-3",
+        "line": 5,
+        "text": "Your notes are private and only visible to you."
+      },
+      "best": {
+        "passage": {
+          "id": "after-3",
+          "line": 5,
+          "text": "Only you can access your private notes."
+        },
+        "score": 0.8358999000970447,
+        "lexical": 0.45454545454545453
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-1",
+            "line": 3,
+            "text": "Download your notes as a local backup."
+          },
+          "score": 0.5709982301217448,
+          "lexical": 0.14285714285714285
+        },
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "Navigate the interface using keyboard shortcuts."
+          },
+          "score": 0.07054500548591175,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.26490166997529996,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "echo",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    }
+  ]
+}

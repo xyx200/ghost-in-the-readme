@@ -1,0 +1,212 @@
+{
+  "createdAt": "2026-10-29T17:45:49.722Z",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "modelRevision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "backend": "ONNX Runtime Node / CPU",
+  "networkDuringInference": "Disabled: global fetch throws on any request.",
+  "browserVerification": "Separate browser evidence is stored in browser-validation.json and browser-export.json.",
+  "fixtureDisclosure": "All sample prose and retrieval triples are original synthetic fixtures, not real users or a benchmark.",
+  "retrievalChecks": [
+    {
+      "query": "You can save a copy of your notes to your own computer.",
+      "positive": "Download your notes as a local backup.",
+      "negative": "The garden is full of purple flowers.",
+      "relevant": 0.8300608393580109,
+      "unrelated": 0.023881093583887233,
+      "lexical": 0.2,
+      "pass": true
+    },
+    {
+      "query": "The application supports navigation with a keyboard.",
+      "positive": "Navigate the interface using keyboard shortcuts.",
+      "negative": "Bake the bread for forty minutes.",
+      "relevant": 0.5887516305598279,
+      "unrelated": -0.0023977671967877626,
+      "lexical": 0.18181818181818182,
+      "pass": true
+    },
+    {
+      "query": "You can export every transcript as a plain text file.",
+      "positive": "Download your transcripts in TXT format whenever you like.",
+      "negative": "The train departs from platform nine.",
+      "relevant": 0.7289330430517178,
+      "unrelated": 0.11948584248916533,
+      "lexical": 0.05555555555555555,
+      "pass": true
+    },
+    {
+      "query": "Your notes are private and only visible to you.",
+      "positive": "Only you can access your private notes.",
+      "negative": "A warm bowl of soup waits on the table.",
+      "relevant": 0.8411380145579476,
+      "unrelated": 0.03477004696570584,
+      "lexical": 0.45454545454545453,
+      "pass": true
+    },
+    {
+      "query": "Search finds related memories without matching exact words.",
+      "positive": "Semantic retrieval locates similar stories from a description.",
+      "negative": "The camera battery is completely flat.",
+      "relevant": 0.5084377452745997,
+      "unrelated": -0.019624320309447562,
+      "lexical": 0,
+      "pass": true
+    }
+  ],
+  "passed": 5,
+  "total": 5,
+  "outputs": [
+    {
+      "id": "lantern",
+      "inference": {
+        "backend": "ONNX Runtime Node / CPU",
+        "library": "@huggingface/transformers@3.8.1",
+        "dtype": "q8",
+        "dimensions": 384,
+        "passages": 13,
+        "modelLoadMs": 128,
+        "inferenceMs": 14,
+        "measuredAt": "2026-10-29T17:45:49.691Z",
+        "remoteModelsAllowed": false
+      },
+      "summary": [
+        {
+          "source": "Every control can be reached using only a keyboard.",
+          "current": "Semantic search retrieves related memories from a short description.",
+          "cosine": 0.09958584602324125,
+          "lexical": 0.058823529411764705,
+          "status": "ghost",
+          "polarityWarning": false
+        },
+        {
+          "source": "There are no advertisements in the archive.",
+          "current": "Download your transcripts in TXT format whenever you like.",
+          "cosine": 0.19284688308652467,
+          "lexical": 0.06666666666666667,
+          "status": "ghost",
+          "polarityWarning": true
+        },
+        {
+          "source": "Recordings stay on your device and never leave your computer.",
+          "current": "Audio is uploaded to our cloud for processing.",
+          "cosine": 0.41797726334711965,
+          "lexical": 0,
+          "status": "ghost",
+          "polarityWarning": true
+        },
+        {
+          "source": "The archive remembers the name of each person who told a story.",
+          "current": "Semantic search retrieves related memories from a short description.",
+          "cosine": 0.47334540226491845,
+          "lexical": 0.05263157894736842,
+          "status": "uncertain",
+          "polarityWarning": false
+        },
+        {
+          "source": "Search finds a memory even when you cannot remember its exact words.",
+          "current": "Semantic search retrieves related memories from a short description.",
+          "cosine": 0.7049169508185628,
+          "lexical": 0.10526315789473684,
+          "status": "echo",
+          "polarityWarning": true
+        },
+        {
+          "source": "You can export every transcript as a plain text file.",
+          "current": "Download your transcripts in TXT format whenever you like.",
+          "cosine": 0.71107851624491,
+          "lexical": 0.05555555555555555,
+          "status": "echo",
+          "polarityWarning": false
+        },
+        {
+          "source": "Lantern preserves the stories people tell around the kitchen table.",
+          "current": "Lantern preserves the stories people tell around the kitchen table.",
+          "cosine": 1,
+          "lexical": 1,
+          "status": "unchanged",
+          "polarityWarning": false
+        }
+      ]
+    },
+    {
+      "id": "negation",
+      "inference": {
+        "backend": "ONNX Runtime Node / CPU",
+        "library": "@huggingface/transformers@3.8.1",
+        "dtype": "q8",
+        "dimensions": 384,
+        "passages": 6,
+        "modelLoadMs": 128,
+        "inferenceMs": 4,
+        "measuredAt": "2026-10-29T17:45:49.698Z",
+        "remoteModelsAllowed": false
+      },
+      "summary": [
+        {
+          "source": "Users can delete their account and all stored records.",
+          "current": "The application collects personal data.",
+          "cosine": 0.3289379944848123,
+          "lexical": 0,
+          "status": "ghost",
+          "polarityWarning": false
+        },
+        {
+          "source": "The application does not collect personal data.",
+          "current": "The application collects personal data.",
+          "cosine": 0.6350795338542498,
+          "lexical": 0.5,
+          "status": "uncertain",
+          "polarityWarning": true
+        },
+        {
+          "source": "All features work without an internet connection.",
+          "current": "An internet connection is required to use all features.",
+          "cosine": 0.7635275019657427,
+          "lexical": 0.45454545454545453,
+          "status": "echo",
+          "polarityWarning": true
+        }
+      ]
+    },
+    {
+      "id": "return",
+      "inference": {
+        "backend": "ONNX Runtime Node / CPU",
+        "library": "@huggingface/transformers@3.8.1",
+        "dtype": "q8",
+        "dimensions": 384,
+        "passages": 6,
+        "modelLoadMs": 128,
+        "inferenceMs": 6,
+        "measuredAt": "2026-10-29T17:45:49.706Z",
+        "remoteModelsAllowed": false
+      },
+      "summary": [
+        {
+          "source": "The application supports navigation with a keyboard.",
+          "current": "Navigate the interface using keyboard shortcuts.",
+          "cosine": 0.581633705793771,
+          "lexical": 0.18181818181818182,
+          "status": "uncertain",
+          "polarityWarning": false
+        },
+        {
+          "source": "You can save a copy of your notes to your own computer.",
+          "current": "Download your notes as a local backup.",
+          "cosine": 0.8296115685619273,
+          "lexical": 0.2,
+          "status": "echo",
+          "polarityWarning": false
+        },
+        {
+          "source": "Your notes are private and only visible to you.",
+          "current": "Only you can access your private notes.",
+          "cosine": 0.8358999000970447,
+          "lexical": 0.45454545454545453,
+          "status": "echo",
+          "polarityWarning": false
+        }
+      ]
+    }
+  ]
+}

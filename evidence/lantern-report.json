@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "title": "Ghost in the README — review ledger",
+  "createdAt": "2026-10-29T17:45:49.692Z",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "method": "Quantized sentence embeddings; mean pooling; cosine similarity. Scores are not probabilities or proof of fulfillment.",
+  "threshold": 0.68,
+  "inputFingerprints": {
+    "before": "03bb21ae26f13021425875fdf7ea358375caceed2da022cbc7c068368e2304c0",
+    "after": "fb54ebeefc567357939518b438bf7cfc3ab8dd6deabf239e6afd7ec3b4316acc"
+  },
+  "inference": {
+    "backend": "ONNX Runtime Node / CPU",
+    "library": "@huggingface/transformers@3.8.1",
+    "dtype": "q8",
+    "dimensions": 384,
+    "passages": 13,
+    "modelLoadMs": 128,
+    "inferenceMs": 14,
+    "measuredAt": "2026-10-29T17:45:49.691Z",
+    "remoteModelsAllowed": false
+  },
+  "limitations": [
+    "English short prose only; code blocks and headings are skipped.",
+    "Similarity is not entailment. Negation and contradictory promises can look similar.",
+    "Thresholds are editorial heuristics, not calibrated probabilities.",
+    "One current passage can be the nearest neighbor of several old passages."
+  ],
+  "before": "# Lantern — the promise\n\nLantern preserves the stories people tell around the kitchen table.\nRecordings stay on your device and never leave your computer.\nYou can export every transcript as a plain text file.\nEvery control can be reached using only a keyboard.\nThe archive remembers the name of each person who told a story.\nSearch finds a memory even when you cannot remember its exact words.\nThere are no advertisements in the archive.",
+  "after": "# Lantern — today\n\nLantern preserves the stories people tell around the kitchen table.\nDownload your transcripts in TXT format whenever you like.\nSemantic search retrieves related memories from a short description.\nAudio is uploaded to our cloud for processing.\nChoose a colorful cover for each collection.\nShare a public link to your favorite story.",
+  "findings": [
+    {
+      "source": {
+        "id": "before-4",
+        "line": 6,
+        "text": "Every control can be reached using only a keyboard."
+      },
+      "best": {
+        "passage": {
+          "id": "after-3",
+          "line": 5,
+          "text": "Semantic search retrieves related memories from a short description."
+        },
+        "score": 0.09958584602324125,
+        "lexical": 0.058823529411764705
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-4",
+            "line": 6,
+            "text": "Audio is uploaded to our cloud for processing."
+          },
+          "score": 0.03342147729581249,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-5",
+            "line": 7,
+            "text": "Choose a colorful cover for each collection."
+          },
+          "score": 0.023099363156322824,
+          "lexical": 0.06666666666666667
+        }
+      ],
+      "margin": 0.06616436872742876,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "ghost",
+      "ambiguous": true,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-7",
+        "line": 9,
+        "text": "There are no advertisements in the archive."
+      },
+      "best": {
+        "passage": {
+          "id": "after-2",
+          "line": 4,
+          "text": "Download your transcripts in TXT format whenever you like."
+        },
+        "score": 0.19284688308652467,
+        "lexical": 0.06666666666666667
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-6",
+            "line": 8,
+            "text": "Share a public link to your favorite story."
+          },
+          "score": 0.13454491551572484,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-4",
+            "line": 6,
+            "text": "Audio is uploaded to our cloud for processing."
+          },
+          "score": 0.06317633854921918,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.058301967570799834,
+      "exact": false,
+      "polarityWarning": true,
+      "status": "ghost",
+      "ambiguous": true,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-2",
+        "line": 4,
+        "text": "Recordings stay on your device and never leave your computer."
+      },
+      "best": {
+        "passage": {
+          "id": "after-4",
+          "line": 6,
+          "text": "Audio is uploaded to our cloud for processing."
+        },
+        "score": 0.41797726334711965,
+        "lexical": 0
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "Download your transcripts in TXT format whenever you like."
+          },
+          "score": 0.31787622910290203,
+          "lexical": 0.058823529411764705
+        },
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Semantic search retrieves related memories from a short description."
+          },
+          "score": 0.11956104425134195,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.10010103424421762,
+      "exact": false,
+      "polarityWarning": true,
+      "status": "ghost",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-5",
+        "line": 7,
+        "text": "The archive remembers the name of each person who told a story."
+      },
+      "best": {
+        "passage": {
+          "id": "after-3",
+          "line": 5,
+          "text": "Semantic search retrieves related memories from a short description."
+        },
+        "score": 0.47334540226491845,
+        "lexical": 0.05263157894736842
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-6",
+            "line": 8,
+            "text": "Share a public link to your favorite story."
+          },
+          "score": 0.4298062853646897,
+          "lexical": 0.11764705882352941
+        },
+        {
+          "passage": {
+            "id": "after-1",
+            "line": 3,
+            "text": "Lantern preserves the stories people tell around the kitchen table."
+          },
+          "score": 0.29041411606475825,
+          "lexical": 0.05263157894736842
+        }
+      ],
+      "margin": 0.04353911690022877,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "uncertain",
+      "ambiguous": true,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-6",
+        "line": 8,
+        "text": "Search finds a memory even when you cannot remember its exact words."
+      },
+      "best": {
+        "passage": {
+          "id": "after-3",
+          "line": 5,
+          "text": "Semantic search retrieves related memories from a short description."
+        },
+        "score": 0.7049169508185628,
+        "lexical": 0.10526315789473684
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-2",
+            "line": 4,
+            "text": "Download your transcripts in TXT format whenever you like."
+          },
+          "score": 0.2495542517204877,
+          "lexical": 0.05
+        },
+        {
+          "passage": {
+            "id": "after-4",
+            "line": 6,
+            "text": "Audio is uploaded to our cloud for processing."
+          },
+          "score": 0.10870356215714364,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.45536269909807503,
+      "exact": false,
+      "polarityWarning": true,
+      "status": "echo",
+      "ambiguous": false,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-3",
+        "line": 5,
+        "text": "You can export every transcript as a plain text file."
+      },
+      "best": {
+        "passage": {
+          "id": "after-2",
+          "line": 4,
+          "text": "Download your transcripts in TXT format whenever you like."
+        },
+        "score": 0.71107851624491,
+        "lexical": 0.05555555555555555
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-4",
+            "line": 6,
+            "text": "Audio is uploaded to our cloud for processing."
+          },
+          "score": 0.23086337902445037,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-3",
+            "line": 5,
+            "text": "Semantic search retrieves related memories from a short description."
+          },
+          "score": 0.1783240244633273,
+          "lexical": 0.05555555555555555
+        }
+      ],
+      "margin": 0.48021513722045966,
+      "exact": false,
+      "polarityWarning": false,
+      "status": "echo",
+      "ambiguous": false,
+      "sharedMatch": true,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    },
+    {
+      "source": {
+        "id": "before-1",
+        "line": 3,
+        "text": "Lantern preserves the stories people tell around the kitchen table."
+      },
+      "best": {
+        "passage": {
+          "id": "after-1",
+          "line": 3,
+          "text": "Lantern preserves the stories people tell around the kitchen table."
+        },
+        "score": 1,
+        "lexical": 1
+      },
+      "alternatives": [
+        {
+          "passage": {
+            "id": "after-5",
+            "line": 7,
+            "text": "Choose a colorful cover for each collection."
+          },
+          "score": 0.24954527360196133,
+          "lexical": 0
+        },
+        {
+          "passage": {
+            "id": "after-6",
+            "line": 8,
+            "text": "Share a public link to your favorite story."
+          },
+          "score": 0.21342364196075483,
+          "lexical": 0
+        }
+      ],
+      "margin": 0.7504547263980387,
+      "exact": true,
+      "polarityWarning": false,
+      "status": "unchanged",
+      "ambiguous": false,
+      "sharedMatch": false,
+      "humanReview": {
+        "decision": "unreviewed",
+        "note": ""
+      }
+    }
+  ]
+}
